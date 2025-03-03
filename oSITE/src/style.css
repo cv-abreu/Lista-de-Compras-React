@@ -6,7 +6,7 @@ html, body{
 
 }
 
-#nave{
+nav{
 
     position:fixed;
     z-index:1;
@@ -23,7 +23,7 @@ html, body{
     
 }
 
-.texto1{
+#intro{
 
     display:flex;
     flex-direction:column;
@@ -53,16 +53,6 @@ html, body{
     
 }
 
-#intro{
-
-    font-size:150%;
-    margin:2%;
-    text-align:center;
-    font-family:Tahoma, sans-serif;
-    color:greenyellow;
-
-}
-
 
 .subtitulo{
 
@@ -73,7 +63,8 @@ html, body{
     color:greenyellow;
 
 }
-.subtexto{
+
+.texto{
 
     font-size:130%;
     width:50%;
