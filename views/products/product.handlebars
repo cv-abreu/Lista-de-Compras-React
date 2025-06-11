@@ -1,0 +1,16 @@
+<h1>PRODUTOS</h1>
+
+<div class="container">
+	<div class="valores">
+		{{#each product}}
+		 <div class="single_product">
+			ID:  {{dataValues.Id}}<br>
+			Produto: {{dataValues.name}}<br>
+			Categoria: {{dataValues.type}}<br>
+			Preço: {{dataValues.price}}<br>
+			<a href="/productEdit/{{dataValues.userId}}"><button class="btn btn-outline-primary" id="edit-button">Editar</button></a>
+			<a href="/productDelete/{{dataValues.userId}}"><button class="btn btn-outline-danger" id="delete-button">Deletar</button></a>
+		 </div>
+		{{/each}}
+	</div>
+</div>
