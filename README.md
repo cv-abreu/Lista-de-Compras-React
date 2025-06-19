@@ -1,15 +1,15 @@
 # Projeto React
 
-Lista de Compras funcional
+>Lista de Compras funcional
 
-> Nome do Produto
-> Quantidade
-> Tipo de medição ( unidade, fardo ou kg)
+* Nome do Produto;
+* Quantidade;
+*  Tipo de medição ( unidade, fardo ou kg).
 
-Conhecimentos Utilizados
+>Conhecimentos Utilizados
 
-> JavaScript
-> HTML
-> CSS
-> React.Js
+* JavaScript;
+* HTML;
+* CSS;
+* React.Js.
 
