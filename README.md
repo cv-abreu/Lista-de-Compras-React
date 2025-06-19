@@ -1,4 +1,4 @@
-# Projeto React
+# Projeto React : Lista de Compras
 
 >Lista de Compras funcional
 
