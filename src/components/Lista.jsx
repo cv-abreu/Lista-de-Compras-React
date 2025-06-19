@@ -6,7 +6,8 @@ const Lista = () =>{
 
     const [items, setItems] = useState ([]);
     const [inputValue,setInputValue] = useState("");
-     const [inputAmount,setInputAmount]= useState("");
+    const [inputAmount,setInputAmount]= useState("");
+    const [inputType,setInputType]= useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,12 +17,14 @@ const Lista = () =>{
                 id : Date.now(),
                 text: inputValue,
                 amount: inputAmount,
+                type: inputType,
             };
 
             setItems((prevItems)=> [...prevItems,newItem]);
 
             setInputValue("");
             setInputAmount("");
+            setInputType("");
         }
 
     };
@@ -31,28 +34,42 @@ const Lista = () =>{
         setItems(updatedItems);
     };
 
+    const count = items.length;
 
+     
 
     return (
-        <div className="container">
+        <div className="main-container">
             <h1>Lista de Compras</h1>
-            <form onSubmit={handleSubmit} className="form-container">
-                <input type="text" className="input-field" placeholder="produto" 
-                value={inputValue} onChange={(e) => setInputValue(e.target.value)}
-                />
-                <input type="number" className="input-field" placeholder="quantidade"
-                value={inputAmount} onChange={(e) => setInputAmount(e.target.value)}
-                />
-                <button type="submit" className="submit-button">Inserir</button>
-            </form>
-
+            <div className="container">
+                <form onSubmit={handleSubmit} className="form-container">
+                    <label htmlFor="product">Produto:</label>
+                    <input type="text" id="product" className="input-field" placeholder="nome do produto..." 
+                    value={inputValue} onChange={(e) => setInputValue(e.target.value)}
+                    />
+                    
+                    <label htmlFor="quantity">Quantidade:</label>
+                    <input type="number" className="input-field" placeholder="0" min="1"
+                    value={inputAmount} onChange={(e) => setInputAmount(e.target.value)}
+                    />                        <label htmlFor="unidade">Unidade:</label>
+                    <select id="unidade" name="unidade" value={inputType} onChange={(e) => setInputType(e.target.value)}>
+                        <option value="">selecione</option>
+                        <option value="unidades">unidades</option>
+                        <option value="kgs">kilos</option>
+                        <option value="fardos">fardos</option>
+                    </select>
+                    
+                    <button type="submit" className="submit-button">Inserir</button>
+                </form>
+                <span>Items: {count}</span>
+            </div>
             {items.length === 0 && <p className ="empty"> Sem items</p>}
             <ul className="items-list">
                 {items.map((item)=>(
                     <li key={item.id} className="items">
-                    <p> Produto:</p> {item.text}<br/>
-                    <p> Quantidade:</p> {item.amount}<p>unidades </p>
-                    <button className="delete-button" onClick={()  => handleDelete(item)}> Delete</button>
+                        <p> Produto:</p> {item.text}<br/>
+                        <p> Quantidade:</p> {item.amount}<p>{item.type} </p>
+                        <button className="delete-button" onClick={()  => handleDelete(item)}> Apagar </button>
               
                     </li>
                 ))}
